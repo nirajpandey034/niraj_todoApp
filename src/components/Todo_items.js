@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Style.css'
 
 class todo_items extends Component {
 
@@ -7,7 +8,8 @@ class todo_items extends Component {
     
         this.state = {
              isChecked : false,
-             textLine : ''
+             textLine : '',
+             isvisible: ''
         }
     }
 
@@ -15,29 +17,30 @@ class todo_items extends Component {
         if(this.state.isChecked === false){
             this.setState({
                 isChecked : true,
-                textLine : 'line-through'
+                textLine : 'line-through',
+                isvisible : 'hidden'
             })
 
-            //console.log("checked")
+            this.props.deleteItem(this.props.task)
         }
         else{
             this.setState({
                 isChecked : false,
-                textLine : 'none'
+                textLine : 'none',
             })
-            //console.log("un-checked")
         }
     }
-
-    // componentDidMount(){
-
-    // }
     render() {
         return (
-            <div>
-                      <label style={{textDecoration : this.state.textLine}}>{this.props.task} </label>   
+            <div className="item">
+                      <label style={{textDecoration : this.state.textLine},{visibility : this.state.isvisible}}>
+                          {this.props.task} 
+                      </label>   
                       {/* <button>Completed</button>*/}
-                      <input type="checkbox" defaultChecked={this.state.isChecked} onChange={this.checkboxTickHandler}></input>
+                      <input style={{visibility : this.state.isvisible}} type="checkbox" defaultChecked={this.state.isChecked} 
+                      onChange={this.checkboxTickHandler}>
+
+                      </input>
             </div>
         )
     }
