@@ -50,7 +50,7 @@ class todo extends Component {
                 <button type="submit" className="buttons" onClick={this.addtolistHandler}>Add to list</button>
                 <div className="TaskList">
 
-                <h2>List Down the tasks that you planned to do today SIR!!</h2>
+                <h2>Task List</h2>
                 {/* {this.state.data} */}
                 {
                     (this.state.data == '') ?
