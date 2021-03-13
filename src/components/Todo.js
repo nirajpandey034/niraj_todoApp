@@ -45,11 +45,12 @@ class todo extends Component {
     }
     render() {
         return (
-            <div className="main">
+            <div >
+                <div className="main"> 
                 <textarea placeholder="Write down your task here" className="textarea" value={this.state.item} onChange={this.itemadderHandler}></textarea><br />
                 <button type="submit" className="buttons" onClick={this.addtolistHandler}>Add to list</button>
                 <div className="TaskList">
-
+                </div>
                 <h2>Task List</h2>
                 {/* {this.state.data} */}
                 {
