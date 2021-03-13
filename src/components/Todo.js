@@ -29,25 +29,19 @@ class todo extends Component {
         })
     }
 
-    //work on this section
+    //work on this section 
     deleteItem = (item) =>{
-        var array = [...this.state.data]
-        var filterObj = array.filter(function(e) {
-            return e.key == item;
+        let array = [...this.state.data]
+        let filterObj = array.filter(function(e) {
+            return e.props.task === item;
           });
 
-          console.log(filterObj)
-          console.log(array)
-
-          //console.log(array.includes(filterObj)) 
-        var index = array.indexOf(filterObj)
-        //console.log(index)
+          //filter method returns a new array, not the object that we were looking for
+        let index = array.indexOf(filterObj[0])
          if (index !== -1) {
              array.splice(index, 1);
              this.setState({data: array});
-        //     console.log("got deleted" + item)
            }
-          //console.log(array)
     }
     render() {
         return (
