@@ -46,10 +46,18 @@ class todo extends Component {
     render() {
         return (
             <div className="main">
-                <textarea className="textarea" value={this.state.item} onChange={this.itemadderHandler}></textarea><br />
+                <textarea placeholder="Write down your task here" className="textarea" value={this.state.item} onChange={this.itemadderHandler}></textarea><br />
                 <button type="submit" className="buttons" onClick={this.addtolistHandler}>Add to list</button>
+                <div className="TaskList">
 
-                {this.state.data}
+                <h2>List Down the tasks that you planned to do today SIR!!</h2>
+                {/* {this.state.data} */}
+                {
+                    (this.state.data == '') ?
+                    <p style={{color:'red'}}>Nothing in here SIR</p> : this.state.data
+                }
+
+                </div>
         {/* {console.log(this.state.item)} */}
             </div>
         )
